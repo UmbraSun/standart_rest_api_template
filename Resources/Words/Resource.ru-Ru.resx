@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>Неверный пароль</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
+  <data name="TheRefreshTokenHasExpired" xml:space="preserve">
+    <value>Время действия refresh токена истекло</value>
+  </data>
+  <data name="TheTokenMustNotBeInBase64Format" xml:space="preserve">
+    <value>Токен не должен быть в формате base64</value>
+  </data>
   <data name="User" xml:space="preserve">
     <value>Пользователь</value>
+  </data>
+  <data name="UserIsNullException" xml:space="preserve">
+    <value>Нет пользователя в запросе</value>
   </data>
 </root>

@@ -61,6 +61,15 @@ namespace Resources.Words {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect password.
+        /// </summary>
+        public static string IncorrectPassword {
+            get {
+                return ResourceManager.GetString("IncorrectPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -70,11 +79,38 @@ namespace Resources.Words {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The refresh token has expired.
+        /// </summary>
+        public static string TheRefreshTokenHasExpired {
+            get {
+                return ResourceManager.GetString("TheRefreshTokenHasExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The token must not be in base64 format.
+        /// </summary>
+        public static string TheTokenMustNotBeInBase64Format {
+            get {
+                return ResourceManager.GetString("TheTokenMustNotBeInBase64Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No user in request.
+        /// </summary>
+        public static string UserIsNullException {
+            get {
+                return ResourceManager.GetString("UserIsNullException", resourceCulture);
             }
         }
     }
