@@ -135,4 +135,7 @@
   <data name="UserIsNullException" xml:space="preserve">
     <value>Нет пользователя в запросе</value>
   </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
 </root>

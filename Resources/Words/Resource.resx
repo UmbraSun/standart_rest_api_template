@@ -135,4 +135,7 @@
   <data name="UserIsNullException" xml:space="preserve">
     <value>No user in request</value>
   </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
 </root>

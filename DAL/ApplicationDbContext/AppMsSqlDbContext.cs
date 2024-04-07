@@ -9,6 +9,8 @@ namespace DAL.ApplicationDbContext
         public AppMsSqlDbContext(DbContextOptions<AppMsSqlDbContext> options)
             : base(options) { }
 
+        public DbSet<TestModel> TestModels { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

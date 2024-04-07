@@ -3,6 +3,7 @@ using Microsoft.IO;
 using System.Net.Mime;
 using System.Net;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace template_asp.net_application.Extensions
 {
@@ -51,14 +52,7 @@ namespace template_asp.net_application.Extensions
             {
                 context.Response.ContentType = MediaTypeNames.Application.Json;
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                var dto = new BadRequestDto
-                {
-                    Errors = new Dictionary<string, IEnumerable<string>>
-                    {
-                        { "Alert", new[] { inner.Message } }
-                    },
-                };
-                await context.Response.WriteAsync(JsonContent.Create(dto).ToString());
+                await context.Response.WriteAsync(inner.Message);
                 _logger.LogError(inner.Message);
             }
         }

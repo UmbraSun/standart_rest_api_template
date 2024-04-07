@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text.Json;
 using template_asp.net_application.Infrastructure;
+using Microsoft.Extensions.Options;
 
 namespace template_asp.net_application.Services
 {
@@ -15,10 +16,10 @@ namespace template_asp.net_application.Services
         private readonly UserManager<User> _userManager;
         private readonly Auth.Jwt _jwt;
 
-        public AuthService(UserManager<User> userManager, Auth.Jwt jwt)
+        public AuthService(UserManager<User> userManager, IOptions<Auth.Jwt> jwt)
         {
             _userManager = userManager;
-            _jwt = jwt;
+            _jwt = jwt.Value;
         }
 
         public async Task<Auth.Responce> AccessToken(Auth.Login dto)
@@ -31,7 +32,7 @@ namespace template_asp.net_application.Services
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user is null)
-                throw new Exception();
+                throw new Exception(Resource.UserNotFound);
             if (!await _userManager.CheckPasswordAsync(user, password))
                 throw new Exception(Resource.IncorrectPassword);
 
