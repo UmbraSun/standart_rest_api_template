@@ -3,7 +3,7 @@ using Microsoft.IO;
 using System.Net.Mime;
 using System.Net;
 using System.Text;
-using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace template_asp.net_application.Extensions
 {
@@ -70,7 +70,7 @@ namespace template_asp.net_application.Extensions
                 BodyJson = await RequestBodyJson(context),
             };
 
-            _logger.LogInformation($"_{nameof(request)}({id}): {JsonContent.Create(request)}");
+            _logger.LogInformation($"_{nameof(request)}({id}): {JsonSerializer.Serialize(request)}");
         }
 
         private async Task<string> RequestBodyJson(HttpContext context)
@@ -123,7 +123,7 @@ namespace template_asp.net_application.Extensions
                     UserName = context.User.Identity?.Name,
                     BodyJson = await ResponseBodyJson(context),
                 };
-                _logger.LogInformation($"_{nameof(response)}({id}): {JsonContent.Create(response)}");
+                _logger.LogInformation($"_{nameof(response)}({id}): {JsonSerializer.Serialize(response)}");
                 await responseBody.CopyToAsync(origin);
             }
             finally
