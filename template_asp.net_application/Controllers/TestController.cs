@@ -1,8 +1,6 @@
 ﻿using BLL.Interfaces;
-using Common;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
-using template_asp.net_application.Infrastructure;
 
 namespace template_asp.net_application.Controllers
 {
@@ -20,9 +18,18 @@ namespace template_asp.net_application.Controllers
 
         [HttpPost]
         [Route("create")]
-        [RolesAuthorize(RoleType.SuperAdmin)]
+        //[RolesAuthorize(RoleType.SuperAdmin)] 
         [ProducesResponseType<TestDto>(StatusCodes.Status200OK)]
         public async Task<TestDto> CreateTestModel(TestDto test)
+        {
+            return await _service.CreateTestModel(test);
+        }
+
+        [HttpGet]
+        [Route("get")]
+        //[RolesAuthorize(RoleType.SuperAdmin)] 
+        [ProducesResponseType<TestDto>(StatusCodes.Status200OK)]
+        public async Task<TestDto> GetTestModel([FromQuery] TestDto test)
         {
             return await _service.CreateTestModel(test);
         }

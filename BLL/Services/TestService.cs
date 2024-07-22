@@ -2,16 +2,16 @@
 using BLL.Interfaces;
 using DAL.Models;
 using DTOs;
-using Repositories.Interfaces;
+using Repositories;
 
 namespace BLL.Service
 {
     public class TestService : ITestService
     {
-        private readonly ITestRepository _repository;
+        private readonly TestRepository _repository;
         private readonly IMapper _mapper;
 
-        public TestService(ITestRepository repository, IMapper mapper) 
+        public TestService(TestRepository repository, IMapper mapper) 
         {
             _repository = repository;
             _mapper = mapper;

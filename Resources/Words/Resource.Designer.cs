@@ -61,11 +61,29 @@ namespace Resources.Words {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1231232131.
+        /// </summary>
+        public static string asdasdasdsadsad {
+            get {
+                return ResourceManager.GetString("asdasdasdsadsad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect password.
         /// </summary>
         public static string IncorrectPassword {
             get {
                 return ResourceManager.GetString("IncorrectPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partners сount lower then ten.
+        /// </summary>
+        public static string PartnersCountLowerThenTen {
+            get {
+                return ResourceManager.GetString("PartnersCountLowerThenTen", resourceCulture);
             }
         }
         

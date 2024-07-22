@@ -10,10 +10,16 @@ namespace DAL.ApplicationDbContext
             : base(options) { }
 
         public DbSet<TestModel> TestModels { get; set; }
+        public DbSet<Partners> Partner { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }

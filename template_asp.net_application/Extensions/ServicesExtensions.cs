@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Reflection;
+using AutoMapper;
 using BLL.Infrastracture;
 using BLL.Interfaces;
 using BLL.Service;
+using BLL.Services;
 using DAL.ApplicationDbContext;
 using DAL.Models;
 using DTOs;
@@ -9,9 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using NLog.Extensions.Logging;
 using Repositories;
-using Repositories.Interfaces;
 using template_asp.net_application.Infrastructure;
 using template_asp.net_application.Services;
 
@@ -47,8 +47,10 @@ namespace template_asp.net_application.Extensions
         public static void AddServicesAndRepositories(this IServiceCollection services)
         {
             services.AddTransient<AuthService>();
+            services.AddTransient<TestRepository>();
             services.AddTransient<ITestService, TestService>();
-            services.AddTransient<ITestRepository, TestRepository>();
+            services.AddTransient<PartnersRepository>();
+            services.AddTransient<IPartnersService, PartnersService>();
         }
 
         public static void ConfigMapper(this IServiceCollection services)
@@ -114,6 +116,18 @@ namespace template_asp.net_application.Extensions
                     }
                 });
                 x.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
+
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                // Получите путь к файлу XML-документации
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                // Включите комментарии XML
+                x.IncludeXmlComments(xmlPath);
+
+                // Получите путь к XML-документации DTO проекта
+                var dtoXmlFile = "DTOs.xml";
+                var dtoXmlPath = Path.Combine(AppContext.BaseDirectory, dtoXmlFile);
+                x.IncludeXmlComments(dtoXmlPath);
             });
         }
     }

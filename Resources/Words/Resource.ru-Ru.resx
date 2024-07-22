@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="asdasdasdsadsad" xml:space="preserve">
+    <value>фывфывфывыфвыф</value>
+  </data>
   <data name="IncorrectPassword" xml:space="preserve">
     <value>Неверный пароль</value>
+  </data>
+  <data name="PartnersCountLowerThenTen" xml:space="preserve">
+    <value>У партнёров меньше чем 10</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>

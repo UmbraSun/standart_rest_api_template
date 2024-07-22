@@ -13,7 +13,7 @@ if (app.Environment.IsDevelopment())
     {
         x.DefaultModelExpandDepth(3);
         x.DefaultModelRendering(ModelRendering.Example);
-        x.DefaultModelsExpandDepth(-1);
+        //x.DefaultModelsExpandDepth(-1);
         x.DisplayOperationId();
         x.DisplayRequestDuration();
         x.DocExpansion(DocExpansion.None);
