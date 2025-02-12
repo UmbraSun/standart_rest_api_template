@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using AutoMapper;
+using BLL.Features.TestContext.Queries;
 using BLL.Infrastracture;
 using BLL.Interfaces;
 using BLL.Service;
@@ -25,6 +26,7 @@ namespace template_asp.net_application.Extensions
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(TestGetQueryHandler).Assembly));
 
             // TODO: added NLog file to app
             //services.AddLogging(logging =>

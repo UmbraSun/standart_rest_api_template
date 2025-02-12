@@ -10,6 +10,7 @@ namespace BLL.Features.TestContext.Queries
     /// </summary>
     public class TestGetQuery : IRequest<int>
     {
+        public int Id { get; set; }
     }
 
     public class TestGetQueryHandler : IRequestHandler<TestGetQuery, int>

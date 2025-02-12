@@ -15,7 +15,7 @@ namespace Mediatr.Controllers
     [ProducesResponseType<BadRequestDto>(StatusCodes.Status500InternalServerError)]
     public class TestController : ControllerBase
     {
-        private ISender? _Mediatr;
+        private ISender? _mediatr;
         private readonly ITestService _service;
 
         public TestController(ITestService service)
@@ -26,7 +26,7 @@ namespace Mediatr.Controllers
         /// <summary>
         ///     Mediatr
         /// </summary>
-        protected ISender Mediator => _Mediatr ??= HttpContext.RequestServices.GetService<ISender>()!;
+        protected ISender Mediator => _mediatr ??= HttpContext.RequestServices.GetService<ISender>()!;
 
         [HttpPost]
         [Route("create")]
@@ -40,7 +40,7 @@ namespace Mediatr.Controllers
 
         [HttpGet]
         [Route("get")]
-        [RolesAuthorize(RoleType.SuperAdmin)]
+        //[RolesAuthorize(RoleType.SuperAdmin)]
         [ProducesResponseType<IActionResult>(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetTestModel([FromQuery] TestGetQuery query)
         {
